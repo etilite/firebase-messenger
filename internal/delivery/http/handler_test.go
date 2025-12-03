@@ -37,7 +37,9 @@ func TestHandlerFn(t *testing.T) {
 		handleFunc := server.handlerFn()
 
 		handleFunc(response, request)
-		defer request.Body.Close()
+		defer func() {
+			_ = request.Body.Close()
+		}()
 
 		require.Equal(t, http.StatusOK, response.Code)
 		assert.Equal(t, "application/json", response.Header().Get("Content-Type"))
@@ -60,7 +62,9 @@ func TestHandlerFn(t *testing.T) {
 		handleFunc := server.handlerFn()
 
 		handleFunc(response, request)
-		defer request.Body.Close()
+		defer func() {
+			_ = request.Body.Close()
+		}()
 
 		require.Equal(t, http.StatusBadRequest, response.Code)
 		require.Contains(t, response.Body.String(), "failed to decode JSON: EOF")
