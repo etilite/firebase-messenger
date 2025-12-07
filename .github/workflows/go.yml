@@ -40,10 +40,10 @@ jobs:
       - name: Test
         run: go test -race -v -timeout 30m ./... -coverprofile ./coverage.txt
 
-#      - name: Codecov
-#        uses: codecov/codecov-action@v4
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-#        with:
-#          files: ./coverage.txt
-#          slug: etilite/firebase-messenger
+      - name: Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          files: ./coverage.txt
+          slug: etilite/firebase-messenger

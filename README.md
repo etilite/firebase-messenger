@@ -74,7 +74,7 @@ Content-Type: application/json
   ],
   "notification": {
     "title": "title",
-    "body": "Текст уведомления"
+    "body": "Notification text"
   },
   "data": {
     "key": "value"
